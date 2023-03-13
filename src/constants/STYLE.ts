@@ -1,10 +1,9 @@
 import { css } from '@emotion/react';
 
 export const LAYOUT = {
-    px: '10%',
+    px: '5%',
     header_height: '60px',
-    nav_height: ''
-
+    nav_height: '60px'
 } as const;
 
 export const COLORS = {
@@ -16,4 +15,6 @@ export const COLORS = {
     ibory: '#f7f0ed',
     green1: '#76b860',
     blueLine: '#ccebe9',
+
+    gray_1: '#ddd',
 } as const;

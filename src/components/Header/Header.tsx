@@ -3,22 +3,17 @@ import {APP_NAME} from "@/constants/APP_INFO";
 import * as S from './styles';
 
 interface Props {
-    logo?: boolean;
     leftCont?: React.ReactNode;
+    centerCont?: React.ReactNode;
     rightCont?: React.ReactNode;
 }
 
-function Header({logo, rightCont, leftCont}: Props) {
+function Header({rightCont, centerCont, leftCont}: Props) {
     return (
         <header css={S.Header}>
-            {leftCont}
-            {logo && (
-                <a href='#'>
-                    <img src='#' alt={APP_NAME}/>
-                </a>)}
-            {rightCont && (
-                <div css={S.HeaderRight}>{rightCont}</div>
-            )}
+            {leftCont && (<div css={S.HeaderLeft}>{leftCont}</div>)}
+            {centerCont && (<div css={S.HeaderCenter}>{centerCont}</div>)}
+            {rightCont && (<div css={S.HeaderRight}>{rightCont}</div>)}
         </header>
     )
 }

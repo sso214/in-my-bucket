@@ -2,40 +2,40 @@ import React from "react";
 import Nav from "@/components/Nav/Nav";
 import Layout from "@/components/Layout/Layout";
 import Header from "@/components/Header/Header";
+import Input from "@/components/Input/Input";
+import List from "@/components/List/baseUI/List";
+import Item from "@/components/List/baseUI/Item";
+import Title from "@/components/Title/Title";
 
 function MyBucket() {
     return (
         <main>
-            <Header logo rightCont={
+            <Header rightCont={
                 <div>
                     <button>filter</button>
                     <button>add</button>
                 </div>}/>
 
             <Layout>
-                <input type='search'/>
+                <Input type='search' placeholder='제목 또는 카테고리를 입력해주세요.' style={{marginBottom: '20px'}} />
 
                 <ul>
                     <li>
-                        <h5>category</h5>
-                        <ol>
-                            <li>
+                        <Title as='h5'>Category</Title>
+                        <List>
+                            <Item>
                                 <p>title</p>
                                 <input type='checkbox'/>
-                            </li>
-                            <li>
+                            </Item>
+                            <Item>
                                 <p>title</p>
                                 <input type='checkbox'/>
-                            </li>
-                            <li>
+                            </Item>
+                            <Item>
                                 <p>title</p>
                                 <input type='checkbox'/>
-                            </li>
-                            <li>
-                                <p>title</p>
-                                <input type='checkbox'/>
-                            </li>
-                        </ol>
+                            </Item>
+                        </List>
                     </li>
                 </ul>
             </Layout>

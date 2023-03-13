@@ -5,7 +5,8 @@ export const Nav = css`
   position: fixed;
   bottom: 0;
   left: 0;
-  
+  z-index: 99;
+
   width: 100%;
   height: ${LAYOUT.nav_height};
   padding: 0 ${LAYOUT.px};
@@ -13,18 +14,27 @@ export const Nav = css`
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  border: 1px solid red;
+
+  background: #fff;
+  border-top: 1px solid #ddd;
 
   button {
     width: 44px;
     height: 44px;
 
+    flex: 1;
     border-radius: 50%;
+  }
+  
+  svg {
+    width: 28px;
+    height: 28px;
   }
 
   p {
-    font-size: 12px;
+    margin-top: 4px;
+    
+    font-size: 1px;
     font-weight: 500;
   }
 `;

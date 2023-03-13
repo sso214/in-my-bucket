@@ -33,7 +33,7 @@ const Layout = css`
   justify-content: center;
   text-align: center;
 
-  background: url("/images/pattern02.jpg") repeat center;
+  background: url("/images/pattern02.jpg") repeat;
   background-size: cover;
 `;
 const Title = css`

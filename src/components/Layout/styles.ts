@@ -6,5 +6,4 @@ export const Layout = css`
   min-height: calc(100vh - ${LAYOUT.header_height} - ${LAYOUT.nav_height});
   
   padding: calc(${LAYOUT.header_height} + 20px) 5% ${LAYOUT.nav_height};
-  border: 1px solid red;
 `;

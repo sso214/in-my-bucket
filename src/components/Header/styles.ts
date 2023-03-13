@@ -1,10 +1,11 @@
 import {css} from '@emotion/react';
-import {LAYOUT} from '@/constants/STYLE';
+import {COLORS, LAYOUT} from '@/constants/STYLE';
 
 export const Header = css`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 99;
 
   width: 100%;
   height: ${LAYOUT.header_height};
@@ -12,7 +13,9 @@ export const Header = css`
 
   display: flex;
   align-items: center;
-  border: 1px solid red;
+  
+  background: #fff;
+  border-bottom: 1px solid ${COLORS.gray_1};
 `;
 
 export const HeaderLeft = css`

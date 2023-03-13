@@ -1,4 +1,4 @@
-function filter() {
+function index() {
     return (
         <main>
             <header>
@@ -41,4 +41,4 @@ function filter() {
     )
 }
 
-export default filter;
+export default index;

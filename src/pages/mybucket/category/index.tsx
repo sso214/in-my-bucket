@@ -1,7 +1,7 @@
 import Header from "@/components/Header/Header";
 import Layout from "@/components/Layout/Layout";
 
-function category() {
+function index() {
     return (
         <main>
             <Header rightCont={
@@ -36,4 +36,4 @@ function category() {
     )
 }
 
-export default category;
+export default index;

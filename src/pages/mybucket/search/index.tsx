@@ -2,7 +2,7 @@ import Header from "@/components/Header/Header";
 import Layout from "@/components/Layout/Layout";
 import React from "react";
 
-function search() {
+function index() {
     return (
         <main>
             <Header leftCont={<i>back</i>} />
@@ -36,4 +36,4 @@ function search() {
     );
 }
 
-export default search;
+export default index;

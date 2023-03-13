@@ -18,12 +18,13 @@ export const Nav = css`
   background: #fff;
   border-top: 1px solid #ddd;
 
-  button {
+  a {
     width: 44px;
     height: 44px;
 
     flex: 1;
     border-radius: 50%;
+    text-align: center;
   }
   
   svg {

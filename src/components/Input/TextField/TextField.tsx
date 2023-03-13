@@ -5,10 +5,10 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
     style?: React.CSSProperties;
 }
 
-function Input({style, ...rest}: Props) {
+function TextField({style, ...rest}: Props) {
     return (
-        <input css={S.Input} style={{...style}} {...rest} />
+        <input css={S.TextField} style={{...style}} {...rest} />
     )
 }
 
-export default Input;
+export default TextField;

@@ -1,7 +1,7 @@
 import {css} from '@emotion/react';
 import {COLORS} from "@/constants/STYLE";
 
-export const Input = css`
+export const TextField = css`
   width: 100%;
   height: 45px;
   

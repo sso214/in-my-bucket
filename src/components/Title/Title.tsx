@@ -9,12 +9,12 @@ interface Props {
 
 function Title({as = 'h1', style, children}: Props) {
     const typeStyle = {
-        h1: { fontSize: '30px', fontWeight:'bold' },
+        h1: { fontSize: '28px', fontWeight:'bold' },
         h2: { fontSize: '30px', fontWeight:'bold' },
         h3: { fontSize: '30px', fontWeight:'bold' },
         h4: { fontSize: '30px', fontWeight:'bold' },
-        h5: { fontSize: '15px', fontWeight:'bold', marginBottom: '10px' },
-        h6: { fontSize: '30px', fontWeight:'bold' },
+        h5: { fontSize: '16px', fontWeight:'bold', marginBottom: '10px' },
+        h6: { fontSize: '15px', fontWeight:'bold', marginBottom: '10px' },
     }
 
     return jsx(as, {

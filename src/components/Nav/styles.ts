@@ -26,11 +26,6 @@ export const Nav = css`
     border-radius: 50%;
     text-align: center;
   }
-  
-  svg {
-    width: 28px;
-    height: 28px;
-  }
 
   p {
     margin-top: 4px;

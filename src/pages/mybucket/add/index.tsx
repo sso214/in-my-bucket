@@ -1,73 +1,90 @@
 import React from 'react';
-import {css} from '@emotion/react';
 import Header from "@/components/Header/Header";
 import Layout from "@/components/Layout/Layout";
-import TextField from "@/components/Input/TextField/TextField";
+import Icon from "@/components/Icon/Icon";
+import Link from "next/link";
+import {APP_PATH} from "@/constants/APP_INFO";
+import DataTable from "@/pages/mybucket/DataTable/DataTable";
+import {useRouter} from "next/router";
 import Checkbox from "@/components/Input/Checkbox/Checkbox";
+import TextField from "@/components/Input/TextField/TextField";
+import { css } from '@emotion/react';
+import Button from "@/components/Button/Button";
 
-function MyBucketAdd() {
+function MyBucketDetail() {
+    const router = useRouter();
+
     return (
         <main>
-            <Header rightCont={<i>close</i>}/>
+            <Header
+                leftCont={<Link href={APP_PATH.MY_BUCKET}><Icon name='back' /></Link>}
+                centerCont='버킷리스트 생성'
+            />
             <Layout>
-                <table css={Table}>
-                    <tbody>
-                    <tr>
-                        <th>category</th>
-                        <td><TextField /> <Checkbox /></td>
-                    </tr>
+                <DataTable col={['35%', '65%']}>
                     <tr>
                         <th>title</th>
-                        <td><TextField /></td>
+                        <td>
+                            <TextField />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>status</th>
+                        <td>
+                            <Checkbox />
+                        </td>
                     </tr>
                     <tr>
                         <th>date</th>
-                        <td><TextField type='date' /></td>
+                        <td>
+                            <TextField type='date' />
+                        </td>
                     </tr>
                     <tr>
                         <th>filling</th>
                         <td>
-                            <i/>
-                            <i/>
-                            <i/>
-                            <i/>
-                            <i/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>tag</th>
+                        <td>
+                            <TextField />
                         </td>
                     </tr>
                     <tr>
                         <th>description</th>
-                        <td><textarea></textarea></td>
+                        <td>
+                            <textarea></textarea>
+                        </td>
                     </tr>
-                    <tr>
-                        <th>image</th>
-                        <td><input type='file'/></td>
-                    </tr>
-                    </tbody>
-                </table>
-                <div>
-                    <button>Save</button>
-                    <button>Cancel</button>
+                </DataTable>
+
+                <div css={ButtonWrap}>
+                    <Button onClick={() => router.push(APP_PATH.MY_BUCKET)}>
+                        ADD
+                    </Button>
+                    <Button onClick={() => router.push(APP_PATH.MY_BUCKET)}>
+                        CANCEL
+                    </Button>
                 </div>
             </Layout>
         </main>
     );
 }
 
-const Table = css`
-  width: 100%;
-  table-layout: fixed;
+const ButtonWrap = css`
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
-  font-size: 15px;
-  
-  th {
-    font-weight: bold;
-  }
-  
-  th,
-  td {
-    height: 45px;
-    text-align: left;
+  button {
+    flex: 1;
+    
+    &:first-child {
+      margin-right: 10px;
+    }
   }
 `;
 
-export default MyBucketAdd;
+export default MyBucketDetail;

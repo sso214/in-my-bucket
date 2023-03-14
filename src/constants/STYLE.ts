@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 
 export const LAYOUT = {
     px: '5%',
-    header_height: '60px',
+    header_height: '50px',
     nav_height: '60px'
 } as const;
 

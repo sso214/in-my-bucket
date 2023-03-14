@@ -2,12 +2,16 @@ import React, {InputHTMLAttributes} from 'react';
 import * as S from './styles';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
+    line?: boolean;
     style?: React.CSSProperties;
 }
 
-function TextField({style, ...rest}: Props) {
+function TextField({style, line, ...rest}: Props) {
     return (
-        <input css={S.TextField} style={{...style}} {...rest} />
+        <input
+            style={{...style}}
+            css={[S.TextField, line && S.LineTextField]}
+            {...rest} />
     )
 }
 

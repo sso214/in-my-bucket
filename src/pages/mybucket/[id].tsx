@@ -1,55 +1,100 @@
 import React from 'react';
 import Header from "@/components/Header/Header";
 import Layout from "@/components/Layout/Layout";
+import Icon from "@/components/Icon/Icon";
+import Link from "next/link";
+import {APP_PATH} from "@/constants/APP_INFO";
+import DataTable from "@/pages/mybucket/DataTable/DataTable";
+import { detailData } from "@/data";
+import {useRouter} from "next/router";
+import Checkbox from "@/components/Input/Checkbox/Checkbox";
+import TextField from "@/components/Input/TextField/TextField";
+import { css } from '@emotion/react';
+import Button from "@/components/Button/Button";
 
 function MyBucketDetail() {
+    const router = useRouter();
+    const { id } = router.query;
+    const [data] = detailData.filter((v) => v.idx === Number(id));
+
     return (
         <main>
-            <Header
-                leftCont={
-                    <i>
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13.06 12L17.48 7.57996C17.5537 7.5113 17.6128 7.4285 17.6538 7.3365C17.6948 7.2445 17.7168 7.14518 17.7186 7.04448C17.7204 6.94378 17.7018 6.84375 17.6641 6.75036C17.6264 6.65697 17.5703 6.57214 17.499 6.50092C17.4278 6.4297 17.343 6.37356 17.2496 6.33584C17.1562 6.29811 17.0562 6.27959 16.9555 6.28137C16.8548 6.28314 16.7555 6.30519 16.6635 6.34618C16.5715 6.38717 16.4887 6.44627 16.42 6.51996L12 10.94L7.58 6.51996C7.43782 6.38748 7.24978 6.31535 7.05548 6.31878C6.86118 6.32221 6.67579 6.40092 6.53838 6.53834C6.40096 6.67575 6.32225 6.86113 6.31882 7.05544C6.3154 7.24974 6.38752 7.43778 6.52 7.57996L10.94 12L6.52 16.42C6.37955 16.5606 6.30066 16.7512 6.30066 16.95C6.30066 17.1487 6.37955 17.3393 6.52 17.48C6.66062 17.6204 6.85125 17.6993 7.05 17.6993C7.24875 17.6993 7.43937 17.6204 7.58 17.48L12 13.06L16.42 17.48C16.5606 17.6204 16.7512 17.6993 16.95 17.6993C17.1488 17.6993 17.3394 17.6204 17.48 17.48C17.6204 17.3393 17.6993 17.1487 17.6993 16.95C17.6993 16.7512 17.6204 16.5606 17.48 16.42L13.06 12Z" fill="black"/>
-                        </svg>
-                    </i>}/>
+            <Header leftCont={<Link href={APP_PATH.MY_BUCKET}><Icon name='back' /></Link>}/>
             <Layout>
-                <table>
-                    <tbody>
+                <DataTable col={['35%', '65%']}>
                     <tr>
                         <th>title</th>
-                        <td>?</td>
+                        <td>
+                            <TextField defaultValue={data?.title} />
+                        </td>
                     </tr>
                     <tr>
                         <th>status</th>
-                        <td>?</td>
+                        <td>
+                            <Checkbox defaultChecked={data?.checked} />
+                        </td>
                     </tr>
                     <tr>
                         <th>date</th>
-                        <td>0000.00.00</td>
+                        <td>
+                            <TextField type='date' defaultValue={data?.date} />
+                        </td>
                     </tr>
                     <tr>
                         <th>filling</th>
-                        <td>*****</td>
+                        <td>
+                            {data?.filling}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>tag</th>
+                        <td>
+                            {data?.tag?.map((item) => (
+                                <span key={item}>{item}</span>
+                            ))}
+                            <TextField />
+                        </td>
                     </tr>
                     <tr>
                         <th>description</th>
-                        <td>...</td>
-                    </tr>
-                    <tr>
-                        <th>image</th>
                         <td>
-                            <img src='#' alt='title'/>
+                            <textarea defaultValue={data?.description}></textarea>
                         </td>
                     </tr>
-                    </tbody>
-                </table>
-                <div>
-                    <button>Save</button>
-                    <button>Cancel</button>
+                    {/*<tr>*/}
+                    {/*    <th>image</th>*/}
+                    {/*    <td>*/}
+                    {/*        <img src='#' alt='title'/>*/}
+                    {/*    </td>*/}
+                    {/*</tr>*/}
+                </DataTable>
+
+                <div css={ButtonWrap}>
+                    <Button onClick={() => router.push(APP_PATH.MY_BUCKET)}>
+                        SAVE
+                    </Button>
+                    <Button onClick={() => router.push(APP_PATH.MY_BUCKET)}>
+                        CANCEL
+                    </Button>
                 </div>
             </Layout>
         </main>
     );
 }
+
+const ButtonWrap = css`
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  button {
+    flex: 1;
+    
+    &:first-child {
+      margin-right: 10px;
+    }
+  }
+`;
 
 export default MyBucketDetail;

@@ -1,5 +1,4 @@
 import React from 'react';
-import {APP_NAME} from "@/constants/APP_INFO";
 import * as S from './styles';
 
 interface Props {

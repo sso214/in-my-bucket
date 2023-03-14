@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import {Inter} from 'next/font/google'
 import {css} from '@emotion/react';
+import Link from "next/link";
+import {APP_PATH} from "@/constants/APP_INFO";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -17,7 +19,9 @@ export default function Home() {
             <main css={Layout}>
                 <div>
                     <h1 css={Title}>in my Bucket</h1>
-                    <button css={Button}>KaKao로 계속하기</button>
+                    <button css={Button}>
+                        <Link href={APP_PATH.MY_BUCKET}>KaKao로 계속하기</Link>
+                    </button>
                 </div>
             </main>
         </>
